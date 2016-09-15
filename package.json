@@ -1,0 +1,16 @@
+{
+  "name": "newproj",
+  "version": "1.0.0",
+  "description": "general app",
+  "main": "server.js",
+  "bin": {
+      "check-stolni": "server.js"
+  },
+  "scripts": { "start": "node server.js" },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "log-symbols": "^1.0.2",
+    "request": "^2.74.0"
+  }
+}
