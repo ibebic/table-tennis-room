@@ -1,15 +1,17 @@
 {
-  "name": "newproj",
+  "name": "table-tennis-room",
   "version": "1.0.0",
-  "description": "general app",
-  "main": "server.js",
+  "description": "Check if table tennis room is available without leaving your terminal :)",
   "bin": {
-      "check-stolni": "server.js"
+    "check-table-tennis": "cli.js",
+    "check-room": "cli.js"
   },
-  "scripts": { "start": "node server.js" },
+  "private": true,
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^1.1.3",
+    "dot-prop": "^4.0.0",
     "log-symbols": "^1.0.2",
     "request": "^2.74.0"
   }
