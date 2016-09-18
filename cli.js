@@ -25,6 +25,7 @@ request({ url, headers }, (err, resp, body) => {
 
   if (!room || room.is_occupied === undefined) {
     console.error(chalk.red.bold('Error:'), 'Parsing api response failed!');
+    return;
   }
 
   console.log(
