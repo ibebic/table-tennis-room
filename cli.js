@@ -5,6 +5,7 @@
 const request = require('request');
 const chalk = require('chalk');
 const logSymbols = require('log-symbols');
+const argv = require('minimist')(process.argv.slice(2));
 
 const url = 'http://rooms.manas.hr/checkChanges';
 const headers = { 'X-Requested-With': 'XMLHttpRequest' };
@@ -13,6 +14,8 @@ const ROOM_MAC = 'b8:27:eb:69:c3:d3';
 
 const MSG_OCCUPIED = 'Stolni nije slobodan';
 const MSG_AVAILABLE = 'Stolni je slobodan';
+
+let isVerbose = argv.v || argv.verbose;
 
 request({ url, headers }, (err, resp, body) => {
   if (err) {
@@ -30,6 +33,7 @@ request({ url, headers }, (err, resp, body) => {
 
   console.log(
     room.is_occupied ? logSymbols.error : logSymbols.success,
-    room.is_occupied ? MSG_OCCUPIED : MSG_AVAILABLE
+    room.is_occupied ? MSG_OCCUPIED : MSG_AVAILABLE,
+    isVerbose && room.updated_at ? ` (last update: ${room.updated_at})` : ''
   );
 });
